@@ -9,7 +9,7 @@ pipeline {
         stage('Git Clone') {
             steps {
                 script {
-                    checkout([$class: 'GitSCM', branches: [[name: 'main']],
+                    checkout([$class: 'GitSCM', branches: [[name: 'master']],
                     userRemoteConfigs: [[url: 'https://github.com/boufi9/CC_G5.git']]])
                 }
             }
