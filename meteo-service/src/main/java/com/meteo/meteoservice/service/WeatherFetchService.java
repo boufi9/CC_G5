@@ -16,6 +16,6 @@ public class WeatherFetchService {
         RestTemplate restTemplate = new RestTemplate();
         String url = API_URL.replace("{apiKey}", apiKey).replace("{city}", city);
         String response = restTemplate.getForObject(url, String.class);
-        return response + "LES WEBHOOKS CA MARCHE BIEN!";
+        return response + "LES WEBHOOKS CA MARCHE BIEN!!!";
     }
 }
