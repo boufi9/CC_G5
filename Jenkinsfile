@@ -15,6 +15,16 @@ pipeline {
             }
         }
 
+        stage('Build') {
+            steps {
+                script {
+                    dir ('POV-JAVA'){
+                        bat 'mvn clean install'
+                    }
+                }
+            }
+        }
+
         stage('Build Docker Images') {
             steps {
                 script {
@@ -26,7 +36,6 @@ pipeline {
                 }
             }
         }
-
 
         stage('Run Docker Containers') {
             steps {
@@ -40,6 +49,7 @@ pipeline {
             }
         }
     }
+
     post {
         always {
             echo 'Cleaning up...'
