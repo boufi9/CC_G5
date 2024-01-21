@@ -24,6 +24,7 @@ pipeline {
     }
     post {
         always {
+            cleanWs() // Cleans up the workspace
         }
     }
 }
