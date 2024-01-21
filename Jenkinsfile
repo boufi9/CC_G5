@@ -18,7 +18,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    dir ('POV-JAVA'){
+                    dir ('microserviceMeteo'){
                         bat 'mvn clean install'
                     }
                 }
