@@ -15,10 +15,50 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage('Build Eureka Server') {
             steps {
                 script {
-                    dir ('microserviceMeteo'){
+                    dir('eurekaserver') {
+                        bat 'mvn clean install'
+                    }
+                }
+            }
+        }
+
+        stage('Build User Service') {
+            steps {
+                script {
+                    dir('user-service') {
+                        bat 'mvn clean install'
+                    }
+                }
+            }
+        }
+
+        stage('Build Notification Service') {
+            steps {
+                script {
+                    dir('notification-service') {
+                        bat 'mvn clean install'
+                    }
+                }
+            }
+        }
+
+        stage('Build Meteo Service') {
+            steps {
+                script {
+                    dir('meteo-service') {
+                        bat 'mvn clean install'
+                    }
+                }
+            }
+        }
+
+        stage('Build Gateway') {
+            steps {
+                script {
+                    dir('gateway') {
                         bat 'mvn clean install'
                     }
                 }
